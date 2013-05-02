@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery.fanmenu.js - Fan menu (like Path Menu) using jquery and CSS3</title>
+		<link rel="stylesheet" href="jquery.fanmenu.css"/>
+		<script type="text/javascript">
+        // get current path
+        var pathRegex = new RegExp(/\/[^\/]+$/);
+        var locationPath = location.pathname.replace(pathRegex, '');
+        // Dojo Config
+        var dojoConfig = {
+            parseOnLoad: true,
+            packages: [
+            {
+                name: "PathMenu",
+                location: locationPath + '/PathMenu'
+            }
+            ]
+        };
+        </script>
+        <script src="http://serverapi.arcgisonline.com/jsapi/arcgis/3.4/" type="text/javascript"></script>
+        <script type="text/javascript">
+        require(["PathMenu/PathMenu","dojo/domReady!"],function(PathMenu){
+        	var myPathMenu=new PathMenu({
+			radius: 200,
+			stratAngle: 0,
+			displayAngle: 90,
+			clickButtonClass: "fm_btntoggle",
+			itemClass: ".fm_list>*",
+			activeClass: "fm_active",
+			deactiveClass: "fm_off",
+			clickButtonEffect: "fm_rotate"
+		},"menucontainer");
+        	myPathMenu.startup();
+        });
+        </script>
+	</head>
+	<body>
+		<div id="menucontainer" class='content'>
+		</div>
+	</body>
+</html>
