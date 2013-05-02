@@ -55,7 +55,8 @@
 		},
 		_ToggleMenu: function() {
 			var that = this;
-			var clickbutton=dom.byId("clickbutton");
+			//var clickbutton=dom.byId("clickbutton");
+			var clickbutton=this.myclickbutton;
 			if (!domclass.contains(that.pathmenu, that.options.activeClass)) {//开启
 				array.forEach(that.items, function(item, i) {
 					domstyle.set(item, {
